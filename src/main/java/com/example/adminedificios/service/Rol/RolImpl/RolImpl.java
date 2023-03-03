@@ -1,8 +1,9 @@
-package com.example.adminedificios.service.RolImpl;
+package com.example.adminedificios.service.Rol.RolImpl;
 
+import com.example.adminedificios.dto.RolDto;
 import com.example.adminedificios.model.Rol;
 import com.example.adminedificios.repository.RolRepository;
-import com.example.adminedificios.service.RolService;
+import com.example.adminedificios.service.Rol.RolService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,8 +20,8 @@ public class RolImpl implements RolService {
 
     @Override
     @Transactional
-    public void saveRol(Rol rol) {
-        rolRepository.save(rol);
+    public Rol saveRol(Rol rol) {
+        return rolRepository.save(rol);
     }
 
     @Override
@@ -35,7 +36,7 @@ public class RolImpl implements RolService {
 
     @Override
     @Transactional
-    public void updateRol(Rol rol) { rolRepository.save(rol); }
+    public Rol updateRol(Rol rol) { return rolRepository.save(rol); }
 
     @Override
     @Transactional(readOnly = true)
@@ -43,7 +44,9 @@ public class RolImpl implements RolService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<Rol> getAllRol() { return rolRepository.findAll(); }
+    public List<Rol> getAllRol() {
+        return rolRepository.findAll();
+    }
 
     @Override
     @Transactional

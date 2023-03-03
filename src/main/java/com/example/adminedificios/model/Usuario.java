@@ -1,18 +1,18 @@
 package com.example.adminedificios.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.NonNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Entity
 @Table(name = "usuarios")
 public class Usuario implements Serializable {
+
+    public Usuario() {}
 
     private static final long serialVersionUID = 1L;
 
@@ -22,9 +22,11 @@ public class Usuario implements Serializable {
     private Long id;
 
     @Column(name = "nombre")
+    @NonNull
     private String nombre;
 
     @Column(name = "password")
+    @NonNull
     private String password;
 
     @ManyToMany(cascade = { CascadeType.ALL })

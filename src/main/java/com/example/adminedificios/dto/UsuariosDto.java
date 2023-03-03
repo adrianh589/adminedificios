@@ -1,13 +1,11 @@
 package com.example.adminedificios.dto;
 
 import com.example.adminedificios.model.Rol;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.List;
 
-@Getter
-@Setter
+@Data
 public class UsuariosDto {
     private Long id;
     private String nombre;
