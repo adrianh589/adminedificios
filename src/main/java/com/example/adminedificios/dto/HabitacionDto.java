@@ -1,5 +1,6 @@
 package com.example.adminedificios.dto;
 
+import com.example.adminedificios.model.Huesped;
 import com.example.adminedificios.model.Torre;
 import lombok.Data;
 
@@ -13,5 +14,5 @@ public class HabitacionDto {
     String no_habitacion;
     BigDecimal costo_habitacion;
     Torre torre;
-//    Huesped huesped;
+    Huesped huesped;
 }

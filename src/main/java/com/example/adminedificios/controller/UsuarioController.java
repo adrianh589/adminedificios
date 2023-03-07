@@ -1,6 +1,6 @@
 package com.example.adminedificios.controller;
 
-import com.example.adminedificios.dto.UsuariosDto;
+import com.example.adminedificios.dto.UsuarioDto;
 import com.example.adminedificios.model.Usuario;
 import com.example.adminedificios.service.Usuario.UsuarioService;
 import com.example.adminedificios.utils.Map;
@@ -29,7 +29,7 @@ public class UsuarioController {
             map = new HashMap<String, Object>();
             map.put("ok", true);
             map.put("mensaje", "Usuarios obtenidos correctamente");
-            map.put("response", Map.mapAll(usuarioService.getAll(), UsuariosDto.class, modelMapper));
+            map.put("response", Map.mapAll(usuarioService.getAll(), UsuarioDto.class, modelMapper));
             return ResponseEntity.ok(map);
         } catch (Exception e) {
             map.put("ok", false);
@@ -44,7 +44,7 @@ public class UsuarioController {
             map = new HashMap<String, Object>();
             map.put("ok", true);
             map.put("mensaje", "Usuario obtenido correctamente");
-            map.put("response", modelMapper.map(usuarioService.getUsuarioById(id), UsuariosDto.class));
+            map.put("response", modelMapper.map(usuarioService.getUsuarioById(id), UsuarioDto.class));
             return ResponseEntity.ok(map);
         } catch (Exception e) {
             map.put("ok", false);
@@ -59,7 +59,7 @@ public class UsuarioController {
             map = new HashMap<String, Object>();
             map.put("ok", true);
             map.put("mensaje", "Usuario obtenido correctamente");
-            map.put("response", modelMapper.map(usuarioService.getUsuarioByNombre(usuario.getNombre()), UsuariosDto.class));
+            map.put("response", modelMapper.map(usuarioService.getUsuarioByNombre(usuario.getNombre()), UsuarioDto.class));
             return ResponseEntity.ok(map);
         } catch (Exception e) {
             map.put("ok", false);
@@ -74,7 +74,7 @@ public class UsuarioController {
             map = new HashMap<String, Object>();
             map.put("ok", true);
             map.put("mensaje", "Usuario guardado correctamente");
-            map.put("response", modelMapper.map(usuarioService.saveUsuario(usuario), UsuariosDto.class));
+            map.put("response", modelMapper.map(usuarioService.saveUsuario(usuario), UsuarioDto.class));
             return ResponseEntity.ok(map);
         } catch (Exception e) {
             map.put("ok", false);
@@ -96,7 +96,7 @@ public class UsuarioController {
             }
             map.put("ok", true);
             map.put("mensaje", "Usuario eliminado correctamente");
-            map.put("response", modelMapper.map(usuarioService.deleteUsuario(id), UsuariosDto.class));
+            map.put("response", modelMapper.map(usuarioService.deleteUsuario(id), UsuarioDto.class));
             return ResponseEntity.ok(map);
         } catch (Exception e) {
             map.put("ok", false);
@@ -117,7 +117,7 @@ public class UsuarioController {
             }
             map.put("ok", true);
             map.put("mensaje", "Usuario actualizado correctamente");
-            map.put("response", modelMapper.map(usuarioService.updateUsuario(usuario), UsuariosDto.class));
+            map.put("response", modelMapper.map(usuarioService.updateUsuario(usuario), UsuarioDto.class));
             return ResponseEntity.ok(map);
         } catch (Exception e) {
             map.put("ok", false);

@@ -30,6 +30,11 @@ public class Habitacion implements Serializable {
     @Column(name = "costo_habitacion")
     private BigDecimal costo_habitacion;
 
+
+    @ManyToOne
+    @JoinColumn(name = "id_huesped", insertable = false, updatable = false)
+    private Huesped huesped;
+
     @ManyToOne
     @JoinColumn(name = "id_torre", insertable = false, updatable = false)
     private Torre torre;

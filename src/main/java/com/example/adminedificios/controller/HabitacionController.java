@@ -116,9 +116,9 @@ public class HabitacionController {
     public ResponseEntity delete(@PathVariable BigDecimal id){
         try {
 
-            Habitacion habitacionDelete = habitacionService.delete(id);
+            HabitacionDto habitacionDelete = mapper.map(habitacionService.delete(id), HabitacionDto.class);
 
-            if(habitacionDelete != null) {
+            if (habitacionDelete != null) {
                 map = new HashMap<>();
                 map.put("ok", true);
                 map.put("message", "Habitacion eliminada correctamente");
@@ -126,7 +126,7 @@ public class HabitacionController {
             } else {
                 map = new HashMap<>();
                 map.put("ok", false);
-                map.put("message", "La habitación no ha sido eliminada correctamente, no existe una habitación con el id: " + id);
+                map.put("message", "La habitación no ha sido eliminada, no existe una habitación con el id: " + id);
                 map.put("response", null);
             }
         } catch (Exception e) {
