@@ -55,4 +55,8 @@ public class Huesped implements Serializable {
         this.activo = activo == null || activo;
     }
 
+    public String getNombreCompleto() {
+        return this.getNombre() + " " + this.getApellido();
+    }
+
 }

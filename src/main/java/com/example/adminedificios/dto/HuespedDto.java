@@ -20,4 +20,7 @@ public class HuespedDto {
     List<Habitacion> habitacion;
     TipoIdentificacion tipoIdentificacion;
 
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = this.getNombre() + " " + this.getApellido();
+    }
 }
